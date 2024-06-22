@@ -1,3 +1,3 @@
-After downloading Zip file to your computer, use:-
-to run Frontend:- npm run start
-to run Backend :-npm run dev or npm run start
+After downloading Zip file to your computer, use:-<br>
+Frontend:- npm run start<br>
+Backend :-npm run dev or npm run start
