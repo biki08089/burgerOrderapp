@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+tr {
+
+  height: 2.5rem;
+}
+
+th {
+  text-align: left;
+}
+
+table{
+  border-bottom: 0.3px solid #dddddd7e;
+}
+td{
+
+}
+.Qty{
+  background:white;
+  color: black;
+  font-weight: 500;
+  border-radius: 5px;
+  text-align: center;
+  width: 5rem;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+}
+
+.Qty2{
+  
+  font-weight: 500;
+  border-radius: 5px;
+  text-align: center;
+  width: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* .total{
+  text-align: right;
+} */
