@@ -131,7 +131,8 @@ function App() {
       <Nav />
     
       <div className="h-[80%] flex mt-9">
-        <div className="h-[100%] w-[60%] border flex justify-center items-center">
+        <div className="h-[100%] w-[60%]  flex flex-col justify-center items-center">
+          <h1 className="text-[1.7rem] mb-4 font-semibold text-cust-white text-center">Add your favourites to the cart here..</h1>
           <div className="h-[25rem] w-[16rem] rounded-2xl border border-cust-gray">
             <div className="text-cust-white mx-3 my-3">
               <p>Bread Rs.50 per piece.</p>
@@ -198,12 +199,12 @@ function App() {
           </div>
         </div>
 
-        <div className="h-[100%] w-[100%] border flex flex-col justify-center items-center">
-          <div className="h-[9rem] w-[20rem] rounded-t-[15rem] rounded-b-lg bg-bread-color mb-2"></div>
-          <div className="w-[16rem] bg-aloo-tikki h-[4rem] rounded-full mb-2"></div>
-          <div className="w-[17rem] bg-cheese-slice h-[1rem] rounded-full"></div>
-          <div className="w-[16rem] bg-aloo-tikki h-[4rem] rounded-full mt-2"></div>
-          <div className="h-[9rem] w-[20rem] rounded-b-[15rem] rounded-t-lg bg-bread-color mt-2"></div>
+        <div className="h-[100%] w-[100%] flex flex-col justify-center items-center">
+          <div className="h-[6rem] w-[15rem] rounded-t-[15rem] rounded-b-lg bg-bread-color mb-2"></div>
+          <div className="w-[13rem] bg-aloo-tikki h-[3rem] rounded-full mb-2"></div>
+          <div className="w-[15rem] bg-cheese-slice h-[1rem] rounded-full"></div>
+          <div className="w-[13rem] bg-aloo-tikki h-[3rem] rounded-full mt-2"></div>
+          <div className="h-[6rem] w-[15rem]  rounded-b-[15rem] rounded-t-lg bg-bread-color mt-2"></div>
 
           <form
             onSubmit={handleSubmit(sendCartData)}
