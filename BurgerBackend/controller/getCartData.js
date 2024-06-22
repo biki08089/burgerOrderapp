@@ -4,7 +4,7 @@ const getCartData = async (req, res) => {
   try {
     const { phoneNumber } = req.body;
     if (phoneNumber == null) {
-      return res.status(200).json({
+      return res.status(199).json({
         success: false,
         massage: "Cart is empty.",
       });

@@ -4,7 +4,6 @@ const VITE_BASE_URL = import.meta.env.VITE_BASE_URL;
 import Order from "./Order";
 import toast from "react-hot-toast";
 
-
 const FetchCartitems = ({ loadCart, phoneNumber }) => {
   const [cartArr, setCartArr] = useState([]);
   const [ConfirmOrder, setConfirmOrder] = useState(false);
@@ -18,15 +17,12 @@ const FetchCartitems = ({ loadCart, phoneNumber }) => {
     cartArr.forEach((element) => {
       itemsPrice = itemsPrice + Number(element.totalPrice);
     });
-
-
   }
 
   //Fetching data from the cart
   const getCartData = async () => {
-    console.log("i am running");
     const data = {
-      phoneNumber:phoneNumber||localStorage.getItem("mobileNum"),
+      phoneNumber: phoneNumber || localStorage.getItem("mobileNum"),
     };
 
     const cartData = await fetch(`${VITE_BASE_URL}/getcartdata`, {
@@ -38,16 +34,13 @@ const FetchCartitems = ({ loadCart, phoneNumber }) => {
       body: JSON.stringify(data),
     });
     const res = await cartData.json();
-    console.log(res.items)
     if (res.success) {
       setCartArr(res.items);
-
     }
   };
 
-  //   here we are extracting the mobile number and store the mobile number inside an
-  //   state variable using redux toolkit.so the we will be able access the mobile number from app.jsx compnent.
-   
+  //When clicked "check out" button this function will run..
+
   const placeOrder = async () => {
     if (!localStorage.getItem("mobileNum")) {
       alert("Your cart is empty");
@@ -65,11 +58,10 @@ const FetchCartitems = ({ loadCart, phoneNumber }) => {
         body: JSON.stringify(info),
       });
       const res = await itemsInCartData.json({});
-      console.log(res.items)
       if (res.success) {
-        toast.success("Order Placed Successfully.")
+        toast.success("Order Placed Successfully.");
         setConfirmOrder(true);
-        setOrderDetails(res.items)
+        setOrderDetails(res.items);
       }
     }
   };
@@ -80,9 +72,8 @@ const FetchCartitems = ({ loadCart, phoneNumber }) => {
 
   return (
     <div>
-        
       {ConfirmOrder ? (
-      <Order orderDetails={orderDetails} totalPrice={itemsPrice} />
+        <Order orderDetails={orderDetails} totalPrice={itemsPrice} />
       ) : (
         <div>
           <div className="bg-cust-black  flex justify-between sticky top-0">
@@ -97,8 +88,14 @@ const FetchCartitems = ({ loadCart, phoneNumber }) => {
             </p>
           </div>
           <div>
-          <p className="text-cust-white font-bold mt-2">Customer with mobile number: {localStorage.getItem("mobileNum")}</p>
-           <p className="text-cust-white font-bold mt-2">Total Cart Items: {cartArr.length}</p>
+            <div>
+              <p className="text-cust-white font-bold mt-2 ">
+                Customer with mobile number: {localStorage.getItem("mobileNum")}
+              </p>
+              <p className="text-cust-white font-bold mt-2 ">
+                Total Cart Items: {cartArr.length}
+              </p>
+            </div>
             {cartArr.length == 0 ? (
               <div className="text-cust-white h-[100%] mt-[15rem]">
                 <p className="text-center">Cart is Empty</p>
@@ -107,7 +104,10 @@ const FetchCartitems = ({ loadCart, phoneNumber }) => {
               <div>
                 {cartArr.map((eachObj) => {
                   return (
-                    <div key={eachObj._id} className="border rounded-lg my-3 bg-cust-white w-[18rem] p-3">
+                    <div
+                      key={eachObj._id}
+                      className=" border rounded-lg my-3 bg-cust-white w-[18rem] p-3"
+                    >
                       <div className="flex  ">
                         <img
                           src="logo2.png"

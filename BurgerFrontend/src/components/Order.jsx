@@ -1,7 +1,6 @@
 import React from "react";
 
 const Order = ({ orderDetails, totalPrice }) => {
-  console.log(orderDetails);
   return (
     <div className="h-[15rem] rounded-2xl bg-cust-white p-3">
       <p className="text-center mb-2">Order Summary</p>

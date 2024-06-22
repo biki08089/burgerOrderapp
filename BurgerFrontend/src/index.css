@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 tr {
-
   height: 2.5rem;
 }
 
@@ -11,14 +10,13 @@ th {
   text-align: left;
 }
 
-table{
+table {
   border-bottom: 0.3px solid #dddddd7e;
 }
-td{
-
+td {
 }
-.Qty{
-  background:white;
+.Qty {
+  background: white;
   color: black;
   font-weight: 500;
   border-radius: 5px;
@@ -30,8 +28,7 @@ td{
   align-items: center;
 }
 
-.Qty2{
-  
+.Qty2 {
   font-weight: 500;
   border-radius: 5px;
   text-align: center;

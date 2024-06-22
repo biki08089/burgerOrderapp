@@ -5,7 +5,7 @@ import { useState } from "react";
 import FetchCartitems from "./components/FetchCartitems";
 const VITE_BASE_URL = import.meta.env.VITE_BASE_URL;
 import { useForm } from "react-hook-form";
-import { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 
 function App() {
@@ -111,10 +111,13 @@ function App() {
 
     const res = await sendCartData.json();
     console.log(res);
+    if(res.success){
+      toast.success("Cart item added successfully.")
+    }
 
     /*This code below will load our cart items each time we click on add to cart button.
     We pass "loadCart" as prop to the "fetchcartitem" component so the each time our
-    loadCart updates useeffect will run which will fetch our cart data .*/
+    loadCart updates useEffect will run which will fetch our cart data .*/
 
     if (loadCart) {
       setloadCart(false);
@@ -122,9 +125,6 @@ function App() {
       setloadCart(true);
     }
   };
-
-  //Here this function will place the order...
-  const placeOrder = async () => {};
 
   return (
     <div className="bg-cust-black h-[100vh]">
@@ -235,7 +235,7 @@ function App() {
         </div>
 
         <div className="h-[100%] w-[60%] border overflow-y-scroll p-5 relative">
-          <FetchCartitems loadCart={loadCart} phoneNumber={phoneNumber} />
+          <FetchCartitems  loadCart={loadCart} phoneNumber={phoneNumber} />
         </div>
       </div>
       <Toaster/>

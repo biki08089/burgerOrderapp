@@ -32,7 +32,6 @@ const createCart = async (req, res) => {
         mobilenum,
       });
 
-      console.log(cartData);
       return res.status(200).json({
         success: true,
         massage: "Item added to the Cart.",
