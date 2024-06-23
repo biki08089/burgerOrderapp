@@ -3,7 +3,7 @@ const VITE_BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const OrderPage = () => {
   const [orderData, setOrderData] = useState([]);
-  
+
 //   here we are fetching the order details from the backend..
   const orderDetails = async () => {
     const mobilenum = localStorage.getItem("mobileNum");
@@ -34,10 +34,10 @@ const OrderPage = () => {
     <div>
       <div className="flex flex-col justify-center items-center ">
           <h1 className="text-[2rem] font-bold text-cust-white mb-3">Your Order History</h1>
-        <div className="h-[41rem] w-[45rem] bg-cust-white rounded-xl flex justify-center pt-2 flex-wrap-reverse overflow-y-scroll">
+        <div className="h-[41rem] w-[45rem] bg-cust-white rounded-xl flex flex-col-reverse items-center pt-2 overflow-y-scroll">
           {orderData.reverse().map((eachObj) => {
             return (
-              <div key={eachObj._id} className="h-[15rem] w-[20rem] my-3 mx-3 p-4 rounded-2xl bg-black text-cust-white ">
+              <div key={eachObj._id} className="h-[15rem] w-[30rem] my-3 mx-3 p-4 rounded-2xl bg-black text-cust-white ">
                 <p className="text-center mb-2">Order Summary</p>
                 <hr />
                 <p className="Font-bold my-1 font-semibold">
