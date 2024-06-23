@@ -1,15 +1,21 @@
 import React from "react";
+import { RxCross2 } from "react-icons/rx";
 
-const Order = ({ orderDetails, totalPrice }) => {
+const Order = ({ orderDetails, totalPrice,setConfirmOrder }) => {
+
   return (
     <div className="h-[15rem] rounded-2xl bg-cust-white p-3">
+      <div className="flex justify-between">
       <p className="text-center mb-2">Order Summary</p>
+      <RxCross2 size="25" onClick={()=>{setConfirmOrder(false)}} />
+
+      </div>
       <hr />
       <p className="Font-bold my-1 font-semibold">
         Order Id: {orderDetails.orderId}
       </p>
       <p className="Font-bold my-1 font-semibold">
-        contact no: {orderDetails.products[0].mobilenum}
+        contact no: {orderDetails.mobilenum}
       </p>
       <table>
         <tbody>

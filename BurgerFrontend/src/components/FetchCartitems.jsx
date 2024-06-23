@@ -42,7 +42,7 @@ const FetchCartitems = ({ loadCart, phoneNumber }) => {
   //When clicked "check out" button this function will run..
 
   const placeOrder = async () => {
-    if (!localStorage.getItem("mobileNum")) {
+    if (!localStorage.getItem("mobileNum")||cartArr.length==0) {
       alert("Your cart is empty");
     } else {
       const mobilenum = localStorage.getItem("mobileNum");
@@ -74,7 +74,7 @@ const FetchCartitems = ({ loadCart, phoneNumber }) => {
   return (
     <div>
       {ConfirmOrder ? (
-        <Order orderDetails={orderDetails} totalPrice={itemsPrice} />
+        <Order orderDetails={orderDetails} totalPrice={itemsPrice} setConfirmOrder={setConfirmOrder} />
       ) : (
         <div>
           <div className="bg-cust-black  flex justify-between sticky top-0">
