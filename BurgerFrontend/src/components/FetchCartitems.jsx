@@ -42,7 +42,7 @@ const FetchCartitems = ({ loadCart, phoneNumber }) => {
   //When clicked "check out" button this function will run..
 
   const placeOrder = async () => {
-    if (!localStorage.getItem("mobileNum")||cartArr.length==0) {
+    if (!localStorage.getItem("mobileNum") || cartArr.length == 0) {
       alert("Your cart is empty");
     } else {
       const mobilenum = localStorage.getItem("mobileNum");
@@ -67,6 +67,31 @@ const FetchCartitems = ({ loadCart, phoneNumber }) => {
     }
   };
 
+  //This function will remove the cart item from the cart..
+  const removeCartItem = async (event) => {
+    const id = event.target.value;
+    const data={
+      id,
+    }
+    const deleteitem = await fetch(`${VITE_BASE_URL}/deleteitem`, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body:JSON.stringify(data)
+    });
+    
+    const res=await deleteitem.json();
+    console.log(res);
+    if(res.success){
+      toast.success(res.massage);
+      getCartData();
+    }else{
+      toast.error(res.massage);
+    }
+
+  };
 
   useEffect(() => {
     getCartData();
@@ -75,7 +100,12 @@ const FetchCartitems = ({ loadCart, phoneNumber }) => {
   return (
     <div>
       {ConfirmOrder ? (
-        <Order getCartData={getCartData} orderDetails={orderDetails} totalPrice={itemsPrice} setConfirmOrder={setConfirmOrder} />
+        <Order
+          getCartData={getCartData}
+          orderDetails={orderDetails}
+          totalPrice={itemsPrice}
+          setConfirmOrder={setConfirmOrder}
+        />
       ) : (
         <div>
           <div className="bg-cust-black  flex justify-between sticky top-0">
@@ -110,13 +140,20 @@ const FetchCartitems = ({ loadCart, phoneNumber }) => {
                       key={eachObj._id}
                       className=" border rounded-lg my-3 bg-cust-white w-[18rem] p-3"
                     >
-                      <div className="flex  ">
+                      <div className="flex justify-between ">
                         <img
                           src="logo2.png"
                           className="h-[30px] w-[35px] rounded-lg mr-2"
                           alt=""
                         />
                         <p>Burger King large</p>
+                        <button
+                          onClick={removeCartItem}
+                          value={eachObj._id}
+                          className="h-[2rem] w-[5rem] text-[12px] rounded-lg bg-cust-black text-cust-white"
+                        >
+                          Remove
+                        </button>
                       </div>
                       <p className="font-bold">
                         Mobile No: {eachObj.mobilenum}

@@ -32,9 +32,9 @@ const OrderPage = () => {
 
   return (
     <div>
-      <div className="flex flex-col justify-center items-center ">
+      <div className="pb-16 flex flex-col justify-center items-center ">
           <h1 className="text-[2rem] font-bold text-cust-white mb-3">Your Order History</h1>
-        <div className="h-[41rem] w-[45rem] bg-cust-white rounded-xl flex flex-col items-center pt-2 overflow-y-scroll">
+        <div className="h-[35rem] w-[45rem] bg-cust-white rounded-xl flex flex-col items-center pt-2 overflow-y-scroll">
           {orderData.toReversed().map((eachObj) => {
             return (
               <div key={eachObj._id} className="h-[15rem] w-[30rem] my-3 mx-3 p-4 rounded-2xl bg-black text-cust-white ">

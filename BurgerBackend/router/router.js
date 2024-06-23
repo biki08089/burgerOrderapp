@@ -4,6 +4,7 @@ const createCart = require("../controller/createCartItem");
 const getCartData = require("../controller/getCartData");
 const placeOrder = require("../controller/placeOrder");
 const orderDetails = require("../controller/getOrderDetails");
+const removeItem = require("../controller/removeItem");
 const router=express.Router();
 
 // we are creating data inside db
@@ -17,4 +18,7 @@ router.post("/placeorder",placeOrder);
 
 //Fetching order details...
 router.post("/getorders",orderDetails);
+
+//removeItem from cart..
+router.post("/deleteitem",removeItem);
 module.exports=router;

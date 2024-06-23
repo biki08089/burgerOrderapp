@@ -7,6 +7,7 @@ const VITE_BASE_URL = import.meta.env.VITE_BASE_URL;
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
 import OrderPage from "./page/OrderPage";
+import Footer from "./components/Footer";
 
 function App() {
   const { register, handleSubmit } = useForm();
@@ -132,7 +133,7 @@ function App() {
     <div className="bg-cust-black h-[100vh] relative">
       <Nav setOrderPage={setOrderPage} loadOrderpage={loadOrderpage} />
       <p className="my-6 text-cust-white text-center text-[1.2rem] font-semibold">
-              This is not responsive web app, laptop and desktop use only .
+              i haven't added any responsiveness to this web app. laptop and desktop use only .
             </p>
       {loadOrderpage ? (
         <OrderPage />
@@ -224,10 +225,10 @@ function App() {
 
             <form
               onSubmit={handleSubmit(sendCartData)}
-              className="bg-cheese-slice w-[20rem] p-3 mt-7 rounded-xl"
+              className="bg-cust-semiblack w-[20rem] p-3 mt-7 rounded-xl"
             >
-              <label htmlFor="" className="font-bold">
-                Enter your mobile number.
+              <label htmlFor="" className="font-bold text-cust-white">
+                Enter your mobile number in order to add items to the cart.
               </label>{" "}
               <br />
               <label
@@ -243,7 +244,7 @@ function App() {
                 className="pl-2 h-[2rem] w-[16rem] rounded-md mt-1"
               />
               <br />
-              <button className="bg-cust-white text-black py-3 px-3 rounded-full mt-3  mr-1 font-semibold">
+              <button className="bg-cust-white text-black py-2 px-3 rounded-3xl mt-3  mr-1 font-bold">
                 Add to cart
               </button>
             </form>
@@ -255,6 +256,7 @@ function App() {
         </div>
       )}
       <Toaster />
+      <Footer/>
     </div>
   );
 }
