@@ -108,7 +108,7 @@ const FetchCartitems = ({ loadCart, phoneNumber }) => {
         />
       ) : (
         <div>
-          <div className="bg-cust-black  flex justify-between sticky top-0">
+          <div className="bg-cust-lite-black rounded-lg  flex justify-between sticky top-0">
             <button
               onClick={placeOrder}
               className=" bg-paneer-slice text-black py-2 px-5 font-bold rounded"
@@ -116,7 +116,7 @@ const FetchCartitems = ({ loadCart, phoneNumber }) => {
               Check Out
             </button>
             <p className="mr-9 py-2 px-5 font-bold rounded text-cust-white">
-              Total-Rs.{itemsPrice}
+              All Total-Rs.{itemsPrice}
             </p>
           </div>
           <div>
