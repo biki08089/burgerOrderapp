@@ -16,6 +16,7 @@ const Nav = ({ loadOrderpage, setOrderPage }) => {
         src="logo2.png"
         alt="No image"
       />
+      <p className="text-cust-bg font-bold text-[1.6rem]">BugerHub</p>
       <div className="flex items-center text-black font-semibold ">
         <button className="bg-cust-bg mx-2 w-[6rem] h-[2.5rem] rounded-full">
           Cart
