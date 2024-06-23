@@ -10,7 +10,7 @@ const FetchCartitems = ({ loadCart, phoneNumber }) => {
   const [orderDetails, setOrderDetails] = useState(false);
 
   //Total price of all items
-  let itemsPrice = Number(0);
+  let itemsPrice = 0;
   if (!localStorage.getItem("mobileNum")) {
     console.log("Cart item is empty.");
   } else {
@@ -48,6 +48,7 @@ const FetchCartitems = ({ loadCart, phoneNumber }) => {
       const mobilenum = localStorage.getItem("mobileNum");
       const info = {
         mobilenum,
+        itemsPrice,
       };
       const itemsInCartData = await fetch(`${VITE_BASE_URL}/placeorder`, {
         method: "POST",

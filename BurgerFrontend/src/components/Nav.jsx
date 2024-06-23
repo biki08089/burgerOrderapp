@@ -1,6 +1,14 @@
 import React from "react";
 
-const Nav = () => {
+const Nav = ({ loadOrderpage, setOrderPage }) => {
+  const loadOrderdetails = () => {
+    if (loadOrderpage) {
+      setOrderPage(false);
+    } else {
+      setOrderPage(true);
+    }
+  };
+
   return (
     <div className="h-[4rem] bg-black flex justify-between items-center px-[5rem] sticky top-0">
       <img
@@ -12,8 +20,11 @@ const Nav = () => {
         <button className="bg-cust-bg mx-2 w-[6rem] h-[2.5rem] rounded-full">
           Cart
         </button>
-        <button className="bg-cust-bg mx-2 w-[6rem] h-[2.5rem] rounded-full">
-          Orders
+        <button
+          onClick={loadOrderdetails}
+          className="bg-cust-bg mx-2 w-[8rem] h-[2.5rem]  rounded-full"
+        >
+          {loadOrderpage ? "Dashboard" : "Order"}
         </button>
       </div>
     </div>

@@ -9,6 +9,10 @@ const orderSchema=new mongoose.Schema({
         type:String,
         require:true,
     },
+    totalPrice:{
+        type:String,
+        require:true,
+    },
     products:{
         type:Array,
         require:true,

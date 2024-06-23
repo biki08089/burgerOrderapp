@@ -17,7 +17,7 @@ const createCart = async (req, res) => {
       mobilenum,
     } = req.body;
 
-    // creating an entry inside the database..
+    // creating an entry as cart data inside the database..
     if (mobilenum.length == 10) {
       const cartData = await Cart.create({
         defaultBreadQty,
