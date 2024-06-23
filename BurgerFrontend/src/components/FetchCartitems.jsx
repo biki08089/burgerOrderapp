@@ -69,7 +69,7 @@ const FetchCartitems = ({ loadCart, phoneNumber }) => {
 
   useEffect(() => {
     getCartData();
-  }, [loadCart]);
+  }, [loadCart,ConfirmOrder]);
 
   return (
     <div>
