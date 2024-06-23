@@ -125,7 +125,7 @@ const FetchCartitems = ({ loadCart, phoneNumber }) => {
                 Customer with mobile number: {localStorage.getItem("mobileNum")}
               </p>
               <p className="text-cust-white font-bold mt-2 ">
-                Total Cart Items: {cartArr.length}
+                Total Cart Items :<span className="bg-cust-white text-black rounded-xl ml-2 px-[10px] py-1">{cartArr.length}</span>
               </p>
             </div>
             {cartArr.length == 0 ? (
