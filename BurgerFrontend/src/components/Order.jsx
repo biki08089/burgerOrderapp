@@ -1,14 +1,18 @@
 import React from "react";
 import { RxCross2 } from "react-icons/rx";
 
-const Order = ({ orderDetails, totalPrice,setConfirmOrder }) => {
-
+const Order = ({ orderDetails, totalPrice, setConfirmOrder,getCartData }) => {
   return (
     <div className="h-[15rem] rounded-2xl bg-cust-white p-3">
       <div className="flex justify-between">
-      <p className="text-center mb-2">Order Summary</p>
-      <RxCross2 size="25" onClick={()=>{setConfirmOrder(false)}} />
-
+        <p className="text-center mb-2">Order Summary</p>
+        <RxCross2
+          size="25"
+          onClick={() => {
+            setConfirmOrder(false);
+            getCartData();
+          }}
+        />
       </div>
       <hr />
       <p className="Font-bold my-1 font-semibold">

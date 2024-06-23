@@ -67,14 +67,15 @@ const FetchCartitems = ({ loadCart, phoneNumber }) => {
     }
   };
 
+
   useEffect(() => {
     getCartData();
-  }, [loadCart,ConfirmOrder]);
+  }, [loadCart]);
 
   return (
     <div>
       {ConfirmOrder ? (
-        <Order orderDetails={orderDetails} totalPrice={itemsPrice} setConfirmOrder={setConfirmOrder} />
+        <Order getCartData={getCartData} orderDetails={orderDetails} totalPrice={itemsPrice} setConfirmOrder={setConfirmOrder} />
       ) : (
         <div>
           <div className="bg-cust-black  flex justify-between sticky top-0">
