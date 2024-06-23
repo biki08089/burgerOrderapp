@@ -130,7 +130,7 @@ function App() {
   };
 
   return (
-    <div className="bg-cust-black h-[100vh] relative">
+    <div className="bg-cust-black h-[100vh] pb-7 relative">
       <Nav setOrderPage={setOrderPage} loadOrderpage={loadOrderpage} />
       <p className="my-6 text-cust-white text-center text-[1.2rem] font-semibold">
               i haven't added any responsiveness to this web app. laptop and desktop use only .
@@ -250,7 +250,7 @@ function App() {
             </form>
           </div>
 
-          <div className="h-[100%] w-[60%] border overflow-y-scroll p-5 relative">
+          <div className="max-h-[35rem] w-[60%] border overflow-y-scroll p-5 relative">
             <FetchCartitems loadCart={loadCart} phoneNumber={phoneNumber} />
           </div>
         </div>
